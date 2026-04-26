@@ -1,0 +1,42 @@
+version: "3.4"
+
+services:
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - ./backend:/opt/app
+    working_dir: /opt/app
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+    container_name: php_test
+
+  db:
+      image: postgres
+      ports:
+          - 5432:5432
+      environment:
+          POSTGRES_PASSWORD: test_task
+          POSTGRES_DB: test_task
+          POSTGRES_USER: test_task
+          TZ: 'Europe/Moscow'
+      volumes:
+          - './docker/db/data:/var/lib/postgresql'
+
+  nginx:
+    image: nginx:1.15
+    ports:
+      - 8080:80
+    volumes:
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./backend:/opt/app
+
+  node:
+    build:
+      context: ./docker/node
+    volumes:
+      - ./frontend:/opt/app
+    working_dir: /opt/app
+    ports:
+      - 80:9000

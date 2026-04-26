@@ -1,0 +1,52 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Тестовове задаие",
+        "description": "Тестовове задаие",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/save": {
+            "post": {
+                "tags": [
+                    "Form"
+                ],
+                "summary": "Создание",
+                "operationId": "1cfdeb52329424081bcb177f0fcb9790",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "message": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Form",
+            "description": "Form"
+        }
+    ]
+}
