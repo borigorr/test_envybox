@@ -10,7 +10,7 @@
 Сваггер доступен по адресу http://localhost:8080/api/documentation
 Приложение открывается по адресу http://localhost
 
-# Подготовка для запуска тетсов
+# Подготовка для запуска тестов
  - создать тетсувую базу например create database test_db;
  - cp ./backend/.env.example ./backend/.env.testing
  - прописать в .env.testing в DB_DATABASE  имя созданной базы
